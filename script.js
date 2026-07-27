@@ -19,6 +19,12 @@ if (menuButton && navigation) {
     link.addEventListener("click", closeMenu);
   });
 
+  addEventListener("pointerdown", (event) => {
+    if (menuButton.getAttribute("aria-expanded") === "true" && !event.target.closest(".site-header")) {
+      closeMenu();
+    }
+  });
+
   addEventListener("keydown", (event) => {
     if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
       closeMenu();
