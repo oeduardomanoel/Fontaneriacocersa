@@ -193,13 +193,14 @@ button { font: inherit; }
 .faq details[open] summary::after { content: "−"; }
 .faq details p { max-width: 62ch; margin: -4px 0 24px; color: #40576d; }
 
-.contact { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: end; min-height: 600px; padding: clamp(90px, 11vw, 150px) max(20px, calc((100vw - 1180px) / 2)); color: var(--white); background: var(--yellow); overflow: hidden; }
-.contact::before { content: ""; position: absolute; z-index: 0; top: -30%; left: -4%; width: 44%; height: 165%; background: var(--navy); transform: rotate(20deg); }
+.contact { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 60px; align-items: end; min-height: 600px; padding: clamp(90px, 11vw, 150px) max(20px, calc((100vw - 1180px) / 2)); color: var(--white); background: var(--navy); overflow: hidden; }
+.contact::before { content: ""; position: absolute; z-index: 0; top: 0; right: 0; bottom: 0; width: 42%; background: var(--yellow); clip-path: polygon(38% 0, 100% 0, 100% 100%, 0 100%); }
 .contact-copy, .contact-button { position: relative; z-index: 1; }
+.contact-copy { max-width: min(640px, 56vw); }
 .status-dark { color: var(--white); border-color: var(--white); background: var(--navy); }
-.contact h2 { color: var(--navy); font-size: clamp(4rem, 8vw, 6rem); line-height: .81; }
-.contact h2 mark { color: var(--yellow); background: var(--navy); }
-.contact-copy > p:last-child { max-width: 48ch; color: #263f58; font-size: 1.15rem; }
+.contact h2 { color: var(--white); font-size: clamp(4rem, 8vw, 6rem); line-height: .81; }
+.contact h2 mark { color: var(--navy); background: var(--yellow); }
+.contact-copy > p:last-child { max-width: 48ch; color: #bed0e2; font-size: 1.15rem; }
 .contact-button { display: grid; min-width: min(420px, 100%); padding: 28px 76px 28px 30px; color: var(--white); background: var(--green); box-shadow: 9px 9px 0 var(--green-dark); border-radius: 8px; text-decoration: none; transition: transform .2s var(--ease-route), box-shadow .2s var(--ease-route); }
 .contact-button:hover { transform: translate(-4px,-4px); box-shadow: 13px 13px 0 var(--green-dark); }
 .contact-button span { font-family: var(--display); font-size: 1rem; font-weight: 700; text-transform: uppercase; }
@@ -353,13 +354,12 @@ button { font: inherit; }
   .faq summary::after { top: 50%; transform: translateY(-50%); }
   .contact { gap: 42px; align-items: start; min-height: 560px; padding-bottom: 92px; }
   .contact::before {
-    top: auto;
-    right: -48%;
-    bottom: -22%;
-    left: auto;
-    width: 78%;
-    height: 76%;
-    transform: rotate(20deg);
+    top: 12%;
+    right: -8px;
+    bottom: auto;
+    width: 30px;
+    height: 58%;
+    clip-path: polygon(58% 0, 100% 0, 42% 100%, 0 100%);
   }
   .contact-copy { max-width: 100%; }
   .contact h2 { font-size: clamp(3.5rem, 16vw, 5rem); }
