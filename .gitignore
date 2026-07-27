@@ -1,0 +1,16 @@
+.agents/
+.codex/
+.gemini/
+design/comps/
+.impeccable/questions/
+.impeccable/
+PRODUCT.md
+DESIGN.md
+
+.impeccable-direction.json
+.impeccable-question.err
+.impeccable-question.out
+.surface-brief-home.md
+
+.DS_Store
+Thumbs.db
