@@ -2,6 +2,12 @@ const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".site-nav");
 
 if (menuButton && navigation) {
+  const closeMenu = () => {
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.querySelector(".sr-only").textContent = "Abrir menú";
+    navigation.classList.remove("is-open");
+  };
+
   menuButton.addEventListener("click", () => {
     const isOpen = menuButton.getAttribute("aria-expanded") === "true";
     menuButton.setAttribute("aria-expanded", String(!isOpen));
@@ -10,12 +16,19 @@ if (menuButton && navigation) {
   });
 
   navigation.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.querySelector(".sr-only").textContent = "Abrir menú";
-      navigation.classList.remove("is-open");
-    });
+    link.addEventListener("click", closeMenu);
   });
+
+  addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
+      closeMenu();
+      menuButton.focus();
+    }
+  });
+
+  addEventListener("resize", () => {
+    if (innerWidth > 1050) closeMenu();
+  }, { passive: true });
 }
 
 const root = document.documentElement;
