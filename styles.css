@@ -301,7 +301,22 @@ button { font: inherit; }
   .menu-toggle { width: 48px; height: 48px; margin-right: 0; }
   .site-nav a { padding-right: max(20px, env(safe-area-inset-right)); padding-left: max(20px, env(safe-area-inset-left)); }
   .hero { display: block; min-height: auto; padding: 44px max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left)); }
-  .hero-livery { display: none; }
+  .hero-livery { display: block; }
+  .hero-livery::before {
+    top: 13%;
+    right: -7px;
+    bottom: auto;
+    width: 28px;
+    height: 58%;
+    background: var(--yellow);
+    box-shadow: none;
+    clip-path: polygon(58% 0, 100% 0, 42% 100%, 0 100%);
+    opacity: 1;
+  }
+  .hero-livery::after,
+  .hero-livery .livery-stripe,
+  .hero-livery .vehicle-seam,
+  .hero-livery .vehicle-handle { display: none; }
   .hero-copy { padding: 0; }
   .service-status { max-width: 100%; margin-bottom: 20px; font-size: .72rem; line-height: 1.3; }
   .hero h1 { font-size: clamp(3.45rem, 18.5vw, 4.75rem); line-height: .82; }
