@@ -340,11 +340,21 @@ button { font: inherit; }
   .evidence-list div { align-items: baseline; padding: 17px 0; }
   .evidence-list dt { max-width: 48%; font-size: .86rem; }
   .evidence-list dd { max-width: 52%; font-size: 1.05rem; }
-  .process { gap: 50px; padding-bottom: 155px; }
+  .process { gap: 46px; padding-bottom: clamp(68px, 18vw, 92px); }
   .process-list li { grid-template-columns: 56px 1fr; gap: 16px; margin-bottom: 42px; }
   .process-list::before { left: 21px; }
   .step-marker { width: 48px; height: 48px; font-size: 1.25rem; }
-  .service-ticket { right: max(20px, env(safe-area-inset-right)); left: max(20px, env(safe-area-inset-left)); grid-template-columns: 1fr; width: auto; padding: 22px 24px; transform: none; }
+  .service-ticket {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin-top: 0;
+    padding: 22px 24px;
+    transform: none;
+  }
   .service-ticket::before { display: none; }
   .service-ticket strong { font-size: 2rem; }
   .service-ticket a { display: flex; align-items: center; min-height: 44px; }
@@ -355,7 +365,16 @@ button { font: inherit; }
   .faq summary { display: flex; align-items: center; min-height: 64px; padding: 18px 52px 18px 0; font-size: 1.3rem; }
   .faq summary::after { top: 50%; transform: translateY(-50%); }
   .contact { gap: 42px; align-items: start; min-height: 560px; padding-bottom: 92px; }
-  .contact::before { top: -18%; left: -43%; width: 80%; height: 110%; }
+  .contact::before {
+    top: auto;
+    right: -48%;
+    bottom: -22%;
+    left: auto;
+    width: 78%;
+    height: 76%;
+    transform: rotate(20deg);
+  }
+  .contact-copy { max-width: 100%; }
   .contact h2 { font-size: clamp(3.5rem, 16vw, 5rem); }
   .contact-button { min-width: 0; width: 100%; padding-right: 60px; }
   .site-footer { grid-template-columns: 1fr; gap: 20px; padding-bottom: 40px; }
